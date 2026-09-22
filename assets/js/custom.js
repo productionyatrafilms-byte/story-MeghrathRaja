@@ -85,6 +85,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // start / play / pause / replay button click sound
+    var clickAudio = new Audio('./assets/audio/click.mp3');
+    document.querySelectorAll('#btnPosterPlay, #btnVideoPlay, #btnVideoPause, #btnVideoReplay').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            clickAudio.currentTime = 0;
+            clickAudio.play().catch(function () {});
+        });
+    });
+
     // home button click sound, played before following the link
     var popAudio = new Audio('./assets/audio/pop.mp3');
     document.querySelectorAll('.btn-home, .home-btn-1').forEach(function (link) {
